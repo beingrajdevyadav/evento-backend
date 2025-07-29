@@ -50,4 +50,16 @@ export const updateEvent = async (req, res)=>{
             message: "Failed to update event"
         })
     }
-}
+};
+
+
+// delete event
+
+export const deleteEvent = async (req, res)=>{
+    try {
+       await Event.findByIdAndDelete(req.params.id) ;
+       res.status(200).json({message: "Event deleted"});
+    } catch (error) {
+        res.status(500).json({message: "Error deleting event"})
+    }
+};
