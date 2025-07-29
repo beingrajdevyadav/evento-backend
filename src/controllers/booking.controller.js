@@ -47,3 +47,21 @@ export const bookTicket = async (req, res)=>{
         });
     }
 };
+
+
+// to get user bookings
+
+export const getUserBookings = async (req, res) =>{
+    try {
+        const bookings = await Booking.find({
+          user: req.params.id  
+        }).populate("event");
+        
+        res.status(200).json(bookings);
+
+    } catch (error) {
+        res.status(500).json({
+            message: "Error fetching bookings"
+        });
+    }
+};
