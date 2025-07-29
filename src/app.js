@@ -3,6 +3,7 @@ import { configDotenv } from "dotenv";
 import cors from "cors";
 import authRoutes from "./routes/auth.routes.js";
 import eventRoutes from "./routes/event.routes.js";
+import bookingRoutes from "./routes/booking.routes.js"
 
 // dot env confi
 configDotenv();
@@ -14,5 +15,7 @@ app.use(express.json());
 
 app.use("/api/auth", authRoutes);
 app.use("/api/events", eventRoutes);
+app.use("/api/bookings", bookingRoutes);
+
 
 export {app};
