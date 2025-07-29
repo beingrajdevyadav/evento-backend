@@ -24,3 +24,17 @@ export const getAllEvents = async (req, res) => {
         res.status(500).json({ message: "Failed to fetch events" });
     }
 }
+
+
+// get event by id
+export const getEventById = async (req, res)=>{
+    try {
+        const event = await Event.findOne(req.params.id);
+
+        if(!event) return res.status(404).json({message: "Event not found"});
+
+        res.status(200).json(event);
+    } catch (error) {
+      res.status(500).json({message: "Error retrieving event"}) ; 
+    }
+}
