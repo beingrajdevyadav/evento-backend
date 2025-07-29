@@ -37,4 +37,17 @@ export const getEventById = async (req, res)=>{
     } catch (error) {
       res.status(500).json({message: "Error retrieving event"}) ; 
     }
+};
+
+
+// update event
+export const updateEvent = async (req, res)=>{
+    try {
+        const updated = await Event.findByIdAndUpdate(req.params.id, req.body, {new: true});
+        res.status(200).json(updated);
+    } catch (error) {
+        res.status(500).json({
+            message: "Failed to update event"
+        })
+    }
 }
