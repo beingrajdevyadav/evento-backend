@@ -18,7 +18,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/events", eventRoutes);
 app.use("/api/bookings", bookingRoutes);
 
-app.get("/", (res, req)=>{
+app.get("/", (req, res)=>{
     res.status(200).json({
         message: "Welcome to Evento API",
         version: "1.0.0",
