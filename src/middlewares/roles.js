@@ -6,3 +6,10 @@ export const allowRoles = (...roles)=>{
         next();
     };
 };
+
+
+/*
+
+router.post("/", verifyToken, allowRoles("admin", "organizer"), createEvent);
+
+*/
